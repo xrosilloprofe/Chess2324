@@ -9,10 +9,38 @@ public class Piece {
     public Piece(Type type, Cell cell){
         this.type = type;
         this.cell = cell;
+        placePiece();
+    }
+
+    protected void placePiece() {
+        if(cell!=null)
+            cell.setPiece(this);
     }
 
     public void setCell(Cell cell) {
         this.cell = cell;
+    }
+
+    public Type getType() {
+        return type;
+    }
+
+    public Cell getCell() {
+        return cell;
+    }
+
+    public Color getColor(){
+        return type.getColor();
+    }
+
+    protected boolean canAddToNextMovements(Coordinate coordinate){
+        if(!cell.getBoard().contains(coordinate))
+            return false;
+        if(cell.getBoard().getCellAt(coordinate).isEmpty())
+            return true;
+        if(cell.getBoard().getCellAt(coordinate).getPiece().getColor()!=this.getColor())
+            return true;
+        return false;
     }
 
     @Override
