@@ -28,9 +28,10 @@ public class Board {
             getCellAt(coordinate).highlight();
     }
 
-    public void resetColor(Coordinate[] coordinates){
-        for(Coordinate coordinate:coordinates)
-            getCellAt(coordinate).resetColor();
+    public void resetColor(){
+        for(Cell[] cellArray:cells)
+            for(Cell cell:cellArray)
+                cell.resetColor();
     }
 
     @Override

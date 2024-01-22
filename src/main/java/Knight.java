@@ -14,6 +14,7 @@ public class Knight extends Piece {
         coordinate = initialPosition.up().up().left();
         if(canAddToNextMovements(coordinate))
             nextMovements = Tool.add(coordinate,nextMovements);
+
         coordinate = initialPosition.up().up().right();
         if(canAddToNextMovements(coordinate))
             nextMovements = Tool.add(coordinate,nextMovements);
