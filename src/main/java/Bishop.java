@@ -3,6 +3,11 @@ public class Bishop extends Piece {
         super(type.getType(), board.getCellAt(coordinate));
     }
 
+    @Override
+    public Coordinate[] getNextMovements() {
+        return new Coordinate[0];
+    }
+
     public enum Type {
         BLACK(Piece.Type.BLACK_BISHOP),
         WHITE(Piece.Type.WHITE_BISHOP);

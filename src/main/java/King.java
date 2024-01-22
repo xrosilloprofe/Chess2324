@@ -3,6 +3,11 @@ public class King extends Piece{
         super(type.getType(), board.getCellAt(coordinate));
     }
 
+    @Override
+    public Coordinate[] getNextMovements() {
+        return new Coordinate[0];
+    }
+
     public enum Type{
         BLACK(Piece.Type.BLACK_KING),
         WHITE(Piece.Type.WHITE_KING);
