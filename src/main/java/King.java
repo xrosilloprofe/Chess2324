@@ -5,7 +5,43 @@ public class King extends Piece{
 
     @Override
     public Coordinate[] getNextMovements() {
-        return new Coordinate[0];
+        Coordinate[] nextMovements = new Coordinate[0];
+        Coordinate initialPosition = getCell().getCoordinate();
+        Coordinate coordinate;
+
+        coordinate = initialPosition.up();
+        if(canAddToNextMovements(coordinate))
+            nextMovements = Tool.add(coordinate,nextMovements);
+
+        coordinate = initialPosition.down();
+        if(canAddToNextMovements(coordinate))
+            nextMovements = Tool.add(coordinate,nextMovements);
+
+        coordinate = initialPosition.left();
+        if(canAddToNextMovements(coordinate))
+            nextMovements = Tool.add(coordinate,nextMovements);
+
+        coordinate = initialPosition.right();
+        if(canAddToNextMovements(coordinate))
+            nextMovements = Tool.add(coordinate,nextMovements);
+
+        coordinate = initialPosition.diagonalUpRight();
+        if(canAddToNextMovements(coordinate))
+            nextMovements = Tool.add(coordinate,nextMovements);
+
+        coordinate = initialPosition.diagonalUpLeft();
+        if(canAddToNextMovements(coordinate))
+            nextMovements = Tool.add(coordinate,nextMovements);
+
+        coordinate = initialPosition.diagonalDownRight();
+        if(canAddToNextMovements(coordinate))
+            nextMovements = Tool.add(coordinate,nextMovements);
+
+        coordinate = initialPosition.diagonalDownLeft();
+        if(canAddToNextMovements(coordinate))
+            nextMovements = Tool.add(coordinate,nextMovements);
+
+        return nextMovements;
     }
 
     public enum Type{

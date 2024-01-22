@@ -5,7 +5,52 @@ public class Rook extends Piece{
 
     @Override
     public Coordinate[] getNextMovements() {
-        return new Coordinate[0];
+        return getNextMovementsAsRook(this);
+    }
+
+    public static Coordinate[] getNextMovementsAsRook(Piece piece){
+        Coordinate[] nextMovements = new Coordinate[0];
+        Coordinate initialPosition = piece.getCell().getCoordinate();
+        Coordinate coordinate;
+        Board board = piece.getCell().getBoard();
+
+        if(initialPosition==null)
+            return nextMovements;
+
+        //izquierda
+        coordinate=initialPosition;
+        do{
+            coordinate=coordinate.left();
+            if(piece.canAddToNextMovements(coordinate))
+                nextMovements = Tool.add(coordinate,nextMovements);
+        } while(board.contains(coordinate) && board.getCellAt(coordinate).getPiece()==null);
+
+        //abajo
+        coordinate=initialPosition;
+        do{
+            coordinate=coordinate.down();
+            if(piece.canAddToNextMovements(coordinate))
+                nextMovements = Tool.add(coordinate,nextMovements);
+        } while(board.contains(coordinate) && board.getCellAt(coordinate).getPiece()==null);
+
+        //derecha
+        coordinate=initialPosition;
+        do{
+            coordinate=coordinate.right();
+            if(piece.canAddToNextMovements(coordinate))
+                nextMovements = Tool.add(coordinate,nextMovements);
+        } while(board.contains(coordinate) && board.getCellAt(coordinate).getPiece()==null);
+
+        //arriba
+        coordinate=initialPosition;
+        do{
+            coordinate=coordinate.up();
+            if(piece.canAddToNextMovements(coordinate))
+                nextMovements = Tool.add(coordinate,nextMovements);
+        } while(board.contains(coordinate) && board.getCellAt(coordinate).getPiece()==null);
+
+        return nextMovements;
+
     }
 
     public enum Type {

@@ -3,15 +3,18 @@ import java.util.Arrays;
 public class Main {
     public static void main(String[] args) {
         Board tablero = new Board();
-        Knight c1= new Knight(tablero,new Coordinate('E',4), Knight.Type.BLACK);
-        King r2=new King(tablero,new Coordinate('D',2), King.Type.WHITE);
-        Bishop b1 = new Bishop(tablero, new Coordinate('F',2),Bishop.Type.BLACK);
-        Bishop b2 = new Bishop(tablero, new Coordinate('E',8),Bishop.Type.WHITE);
+        Rook rook= new Rook(tablero,new Coordinate('D',5), Rook.Type.BLACK);
+        Queen queen=new Queen(tablero,new Coordinate('B',3), Queen.Type.WHITE);
+        Bishop b1 = new Bishop(tablero, new Coordinate('C',3),Bishop.Type.BLACK);
+        Bishop b2 = new Bishop(tablero, new Coordinate('A',4),Bishop.Type.WHITE);
+        Pawn peon1 = new Pawn(tablero,new Coordinate('A',7),Pawn.Type.WHITE);
+        Pawn peon2 = new Pawn(tablero,new Coordinate('A',2),Pawn.Type.BLACK);
 
-        System.out.println(Arrays.toString(c1.getNextMovements()));
-        tablero.highligh(c1.getNextMovements());
-
+        tablero.highligh(peon1.getNextMovements());
+        tablero.highligh(peon2.getNextMovements());
         System.out.println(tablero);
+//        tablero.resetColor();
+//        System.out.println(tablero);
 
     }
 }
