@@ -1,5 +1,5 @@
 public class Rook extends Piece{
-    public Rook(Board board, Coordinate coordinate, Type type){
+    public Rook(Board board, Coordinate coordinate, Rook.Type type){
         super(type.getType(), board.getCellAt(coordinate));
     }
 

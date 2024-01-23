@@ -1,5 +1,5 @@
 public class Queen extends Piece{
-    public Queen(Board board, Coordinate coordinate, Type type){
+    public Queen(Board board, Coordinate coordinate, Queen.Type type){
         super(type.getType(), board.getCellAt(coordinate));
     }
 
